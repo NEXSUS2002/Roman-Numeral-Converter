@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-bg-color: #2190FF;
+    --container-bg-color: #F8F8F8;
+    --container-shadow-color: 0 0 10px #0C1016;
+    --h1-color: linear-gradient(90deg, #0C1016, #0EFEB6);
+    --input-border-color: #0C1016;
+    --hover-input-border-color: #2190FF;
+    --btn-color: #2190FF;
+    --btn-font-color: #F8F8F8;
+    --hover-btn-color: #0EFEB6;
+    --hover-btn-font-color: #2190FF;
+    --clear-btn-color: #FE9A77;
+    --clear-btn-font-color: #F8F8F8;
+    --hover-clear-btn-color: #FF2121;
+    --hover-clear-btn-font-color: #FE9A77;
+    --output-container-color: #0C1016;
+    --output-text-color: #2190FF;
+    --toggle-slider: #2190FF;
+    --toggle-slider-circle: #F8F8F8;
+}
+
+body.dark {
+    --body-bg-color: #0C1016;
+    --container-bg-color: #3D4045;
+    --container-shadow-color: 0 0 10px #2190FF;
+    --h1-color: linear-gradient(45deg, #FE9A77, #2190FF);
+    --input-border-color: #F8F8F8;
+    --hover-input-border-color: #FE9A77;
+    --btn-color: #2190FF;
+    --btn-font-color: #F8F8F8;
+    --hover-btn-color: #0EFEB6;
+    --hover-btn-font-color: #2190FF;
+    --clear-btn-color: #FE9A77;
+    --clear-btn-font-color: #F8F8F8;
+    --hover-clear-btn-color: #FF2121;
+    --hover-clear-btn-font-color: #FE9A77;
+    --output-container-color: #2190FF;
+    --output-text-color: #0C1016;
+    --toggle-slider: #0C1016;
+    --toggle-slider-circle: #F8F8F8;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--body-bg-color);
+    padding: 0 1.25rem;
+}
+
+#container {
+    text-align: center;
+    background-color: var(--container-bg-color);
+    box-shadow: var(--container-shadow-color);
+    padding: 2.5rem;
+    border-radius: 0.625rem;
+}
+
+h1 {
+    font-size: clamp(1.875rem, 4vw + 0.625rem, 2.5rem);
+    font-weight: 750;
+    margin-bottom: 1.25rem;
+    background: var(--h1-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+input,
+button {
+    padding: 1.25rem;
+    margin: 0.3125rem 1.25rem;
+    font-size: clamp(1rem, 4vw + 1rem, 1.25rem);
+    font-family: "Lato";
+    font-weight: 600;
+    border-radius: 0.625rem;
+}
+
+input {
+    border: 0.1875rem solid var(--input-border-color);
+    transition: border-color 0.5s ease-in-out;
+}
+
+input:hover {
+    border-color: var(--hover-input-border-color);
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+#convert-btn {
+    background-color: var(--btn-color);
+    color: var(--btn-font-color);
+}
+
+#convert-btn:hover {
+    background-color: var(--hover-btn-color);
+    color: var(--hover-btn-font-color);
+    transform: scale(1.1);
+}
+
+#clear-btn {
+    background-color: var(--clear-btn-color);
+    color: var(--clear-btn-font-color);
+}
+
+#clear-btn:hover {
+    background-color: var(--hover-clear-btn-color);
+    color: var(--hover-clear-btn-font-color);
+    transform: scale(1.1);
+}
+
+.btns {
+    padding: 1.25rem 0;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.theme-toggle label {
+    margin-right: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color .5s ease-in-out;
+}
+
+#output {
+    background-color: var(--output-container-color);
+    color: var(--output-text-color);
+    border-radius: 0.625rem;
+    padding: 1.2rem;
+    font-size: 1rem;
+    font-weight: 900;
+    display: none;
+    transition: display .5s ease-in-out;
+}
+
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-slider {
+    width: 3.125rem;
+    height: 1.5625rem;
+    background-color: var(--toggle-slider);
+    border-radius: 1.5625rem;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.toggle-slider::before {
+    content: "";
+    position: absolute;
+    width: 1.3125rem;
+    height: 1.3125rem;
+    background-color: var(--toggle-slider-circle);
+    border-radius: 50%;
+    top: 0.125rem;
+    left: 0.125rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+.toggle-checkbox:checked+.toggle-slider {
+    background-color: var(--toggle-slider);
+}
+
+.toggle-checkbox:checked+.toggle-slider::before {
+    transform: translateX(25px);
+}
